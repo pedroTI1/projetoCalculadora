@@ -1,3 +1,51 @@
+:root {
+    --primary-background-color: #3A4663;
+    --color-text: #fff;
+    --secondary-background-color: #242D44;
+    --ternary-background-color: #D03F2F;
+    --ternary-background-color-active: #F96B5B;
+    --display-background-color: #181F33;
+    --buttons-background-color: #EAE3DC;
+    --buttons-background-color-active: #FFFFFE;
+    --buttons-secondary-background-color: #647198;
+    --buttons-secondary-background-color-active: #A2B2E1;
+    --buttons-secondary-box-shadow: #414E73;
+    --buttons-ternary-box-shadow: #93261A;
+    --buttons-color-text: #434A59;
+    --buttons-box-shadow: #B3A497; }
+  
+  [data-theme='second'] {
+    --primary-background-color: #E6E6E6;
+    --color-text: #36362C;
+    --secondary-background-color: #D2CDCD;
+    --ternary-background-color: #C85402;
+    --ternary-background-color-active: #FF8A38;
+    --display-background-color: #EEEEEE;
+    --buttons-background-color: #E5E4E1;
+    --buttons-background-color-active: #FFFFFF;
+    --buttons-secondary-background-color: #378187;
+    --buttons-secondary-background-color-active: #62B5BC;
+    --buttons-secondary-box-shadow: #1B6066;
+    --buttons-ternary-box-shadow: #873901;
+    --buttons-color-text: var(--color-text);
+    --buttons-box-shadow: #A79E91; }
+  
+  [data-theme='third'] {
+    --primary-background-color: #17062A;
+    --color-text: #FFE53D;
+    --secondary-background-color: #1E0936;
+    --ternary-background-color: #00DED0;
+    --ternary-background-color-active: #93FFF8;
+    --display-background-color: #1E0936;
+    --buttons-background-color: #331C4D;
+    --buttons-background-color-active: #6C34AC;
+    --buttons-secondary-background-color: #56077C;
+    --buttons-secondary-background-color-active: #8631AF;
+    --buttons-secondary-box-shadow: #BE15F4;
+    --buttons-ternary-box-shadow: #6CF9F1;
+    --buttons-color-text: var(--color-text);
+    --buttons-box-shadow: #881C9E; }
+
 
 *{
     margin: 0;
@@ -7,7 +55,7 @@
 }
 
 body{
-    background-color: hsl(222, 26%, 31%);
+    background-color: var(--primary-background-color);
 }
 
 .main{
@@ -30,7 +78,7 @@ body{
 
 .header-calc p:first-child{
     width: 50%;
-    color: white;
+    color: var(--color-text);
     font-size: 30px;
     padding: 15px 15px;
 }
@@ -42,7 +90,7 @@ body{
 
 
 .header-calc > .theme-selector  p{
-    color: white;
+    color: var(--color-text);
     font-size: 14px;
     margin-top: 10px;
     margin-left: 40px;
@@ -51,41 +99,64 @@ body{
 
 .theme-selector-number  {
     text-align: center;
-    color: white;
+    margin-left: 50px;
+    color: var(--color-text);
     
 }
 
 .header-calc > .theme-selector > .theme-selector-number span  {
-   margin: 0 5px;
+   margin: 0 3px;
     
 }
 
 .theme-selector-box{
-    background-color: hsl(223, 31%, 20%);
+    background:  var(--secondary-background-color);
+    border-radius: 20px;
     height: 22px;
     width: 70px;
-    margin-left: 100px;
+    padding: 0.2rem;
+    position: absolute;
+    margin-left: 103px;
     margin-top: -20px;
-    border-radius: 10px;
+    display: flex;
+    
 }
 
-.theme-selector-box-choice{
+
+
+.ball{
     background-color: orangered;
-    height: 15px;
-    max-width: 15px;
-   
+    height: 16px;
+    width: 16px;
+    border-radius: 13px;
+    position: absolute;
+    cursor: pointer;
 }
+
+.theme-selector > .theme-selector-number input[type=radio]{
+    opacity: 1;
+    margin: 0px;
+}
+
+.label1{
+    height: 20px;
+    width: 20px;
+    background-color: blue;
+    position: relative;
+}
+
+
 
 
 .result{
     margin: 10px auto;
-    background-color: hsl(223, 31%, 20%);
+    background-color: var(--display-background-color);
     width: 100%;
     height: 100px;
     border-radius: 10px;
     font-size: 50px;
     text-align: end;
-    color: white;
+    color: var(--color-text);
     padding: 20px 20px;
     
 }
@@ -94,7 +165,7 @@ body{
     display: flex;
     flex-wrap: wrap;
     margin: 10px auto;
-    background-color: hsl(223, 31%, 20%);
+    background-color: var(--secondary-background-color);
     width: 100%;
     border-radius: 10px;
     padding-bottom: 10px;
@@ -105,13 +176,13 @@ body{
 .calc-keyboard button{
     max-width: 101px;
     height: 62px;
-    background: #EAE3DC;
-    box-shadow: 3px 3px 0 2px #B3A497;
+    background: var(--buttons-background-color);
+    box-shadow: 3px 3px 0 2px var(--buttons-box-shadow);
     border-radius: 10px;
     cursor: pointer;
     outline: none;
     border: none;
-    color: #434A59;
+    color: var(--buttons-color-text);
     font-weight: bold;
     font-size: 42px;
     width: 25%;
@@ -123,57 +194,50 @@ body{
 
 
 .calc-keyboard .reset,
-.calc-keyboard .equals,
-.calc-keyboard .delete{
-    background: #647198;
+.calc-keyboard .equals{
+    background: var(--buttons-secondary-background-color);
     font-size: 25px;
-    box-shadow: 3px 3px 0 2px hsl(222, 26%, 31%);
-    color: white;
+    box-shadow: 3px 3px 0 2px var(--buttons-secondary-box-shadow);
+    color: var(--color-text);
     text-transform: uppercase;
 }
 
 .calc-keyboard .equals{
-    max-width: 240px;
-    background-color: orangered;
-    box-shadow: 3px 3px 0 2px rgb(129, 41, 0);
-    color: white;
+    max-width: 210px;
+    margin-left: 42px;
+    background-color: var(--ternary-background-color);
+    box-shadow: 3px 3px 0 2px var(--buttons-ternary-box-shadow);
+    color: var(--color-text);
     width: 50%;
 }
 
 .calc-keyboard .reset{
-    max-width: 240px;
+    max-width: 210px;
     width: 50%;
 }
 
 
 .calc-keyboard  button:hover{
-    background-color: #FFFFFE
+    background-color: var(--buttons-background-color-active);
     
     
 }
 
-.calc-keyboard  .reset:hover,
-.calc-keyboard  .delete:hover{
+.calc-keyboard  .reset:hover{
 
-    background-color: #A2B2E1;
+    background-color: var(--buttons-secondary-background-color-active);
     
     
 }
 
 .calc-keyboard .equals:hover{
-    background-color: #F96B5B;
+    background-color: var(--ternary-background-color-active);
 }
 
 
 
 
 .calc-keyboard  button:active{
-    box-shadow: 0 0 0 0 #EAE3DC, inset 3px 3px 3px #EAE3DC;
+    box-shadow: 0 0 0 0 var(--buttons-background-color), inset 3px 3px 3px var(--buttons-background-color);
     transform: translate(3px, 3px);
 }
-
-
-
-
-
-

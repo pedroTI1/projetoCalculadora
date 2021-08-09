@@ -18,12 +18,16 @@
                     <span>1</span>
                     <span>2</span>
                     <span>3</span>
+                    <input type="radio"  id="switch1" name="switch" checked />
+                    <input type="radio"  id="switch2" name="switch" />
+                    <input type="radio"  id="switch3" name="switch" />
                 </div>
                 <p>THEME:</p>
                 <div class="theme-selector-box">
-                    <div class="theme-selector-box-choice">
-
-                    </div>
+                    <label class="label1" for="switch1"><div class="ball"></div></label>
+                    <label class="label2" for="switch2"></label>
+                    <label class="label3" for="switch3"></label>
+                   
                 </div>
             </div>
         </div>
@@ -34,7 +38,7 @@
             <button class="number" value="7">7</button>
             <button class="number" value = "8">8</button>
             <button  value ="9" class="number">9</button>
-            <button class="delete">DEL</button>
+            <button class="switch-sign">+/-</button>
             <button class="number" value="4">4</button>
             <button value="5"  class="number">5</button>
             <button class = "number" value="6">6</button>
@@ -54,6 +58,8 @@
     </div>
 
     <script src="script.js"></script>
+    <script src="switcher.js"></script>
+
 
 </body>
 

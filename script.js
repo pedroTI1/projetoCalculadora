@@ -7,13 +7,15 @@
  var novoNumero = true;
  var numAtual;
 
+
+
  function atualizarDisplay(numero){
-     if(novoNumero == true){
-        resultado.innerHTML = `${numero}`;
-        novoNumero = false;
-     }else{
-        resultado.innerHTML += `${numero}`;
-     }
+        if(novoNumero == true){
+            resultado.innerHTML = `${numero}`;
+            novoNumero = false;
+         }else{
+            resultado.innerHTML += `${numero}`;
+         }
  }
 
 
@@ -26,7 +28,6 @@ numeros.forEach(numero => numero.addEventListener('click',inserirNumero));
 function fazerOperacao(){
     if(operador && numeroAnterior != undefined){
         numAtual = resultado.innerHTML;
-        console.log(`${numeroAnterior}${operador}${numAtual}`);
         let conta = `${numeroAnterior}${operador}${numAtual}`;
         let valorFinal = eval(conta);
         resultado.innerHTML = `${valorFinal}`;
@@ -40,11 +41,8 @@ const selecionarOperador  = (evento) => {
         fazerOperacao();
     }
     operador = evento.target.value;
-    console.log(operador);
     novoNumero = true;
     numeroAnterior =  resultado.textContent;
-    console.log(numeroAnterior);
-    
 
 }
 operator.forEach(operador => operador.addEventListener('click', selecionarOperador));
@@ -67,7 +65,22 @@ document.querySelector('.reset')
     numeroAnterior = undefined;
 })
 
-document.querySelector('.delete')
+
+
+document.querySelector('.decimal')
 .addEventListener('click', ()=>{
-   
+    if(resultado.textContent.indexOf('.') == -1){
+        if(novoNumero == true){
+            atualizarDisplay('0.');
+        }else{
+            atualizarDisplay('.');
+        }
+    }
+})
+
+
+document.querySelector('.switch-sign')
+.addEventListener('click', ()=>{
+    resultado.innerHTML = resultado.innerHTML *  -1;
+    
 })
