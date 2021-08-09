@@ -99,7 +99,7 @@ body{
 
 .theme-selector-number  {
     text-align: center;
-    margin-left: 50px;
+
     color: var(--color-text);
     
 }
@@ -115,37 +115,83 @@ body{
     height: 22px;
     width: 70px;
     padding: 0.2rem;
-    position: absolute;
     margin-left: 103px;
     margin-top: -20px;
-    display: flex;
-    
-}
-
-
-
-.ball{
-    background-color: orangered;
-    height: 16px;
-    width: 16px;
-    border-radius: 13px;
-    position: absolute;
-    cursor: pointer;
-}
-
-.theme-selector > .theme-selector-number input[type=radio]{
-    opacity: 1;
-    margin: 0px;
-}
-
-.label1{
-    height: 20px;
-    width: 20px;
-    background-color: blue;
+    display: flex; 
     position: relative;
 }
 
+.radio-input{
+    position: absolute;
+    display: none;
 
+}
+
+
+.radio-label{
+    padding: 8px 10px;
+    cursor: pointer;
+}
+
+.radio-input + .radio-label::after{
+    position: absolute;
+    content: "";
+    width: 25px;
+    height: 2.6rem;
+    z-index: 9;
+    cursor: pointer;
+}
+
+.theme-selector-box #switch1 + label::after {
+    left: 0; 
+}
+
+.theme-selector-box #switch1:checked ~ .ball::after {
+    left: 5px;
+    transition: left 250ms ease-in-out; 
+}
+
+.theme-selector-box #switch2 + label::after {
+    left: 22px; 
+}
+
+.theme-selector-box #switch2:checked ~ .ball::after {
+    left: 25px;
+    transition: left 250ms ease-in-out; 
+}
+
+.theme-selector-box #switch3 + label::after {
+    left: 45px; 
+}
+
+.theme-selector-box #switch3:checked ~ .ball::after {
+    left: 50px;
+    transition: left 250ms ease-in-out; 
+}
+
+.ball {
+    height: 2.6rem;
+    background: var(--secondary-background-color);
+    border-radius: 13px; 
+}
+.ball::after {
+      position: absolute;
+      display: block;
+      content: "";
+      top: 3px;
+      left: 0;
+      background-color: var(--ternary-background-color);
+      height: 16px;
+      width: 16px;
+      border-radius: 50%;
+      transform: translateX(0);
+      transition: transform .4s;
+      z-index: 10;
+      cursor: pointer; }
+     
+.ball:hover::after {
+      background-color: var(--ternary-background-color-active); 
+}
 
 
 .result{

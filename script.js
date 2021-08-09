@@ -27,12 +27,12 @@ numeros.forEach(numero => numero.addEventListener('click',inserirNumero));
 
 function fazerOperacao(){
     if(operador && numeroAnterior != undefined){
-        numAtual = resultado.innerHTML;
+        numAtual = resultado.textContent;
         let conta = `${numeroAnterior}${operador}${numAtual}`;
         let valorFinal = eval(conta);
         resultado.innerHTML = `${valorFinal}`;
         novoNumero = true;
-        numeroAnterior = valorFinal;
+        operador = undefined;
     }
 }
 
@@ -50,7 +50,10 @@ operator.forEach(operador => operador.addEventListener('click', selecionarOperad
 
 document.querySelector('.equals')
 .addEventListener('click', ()=>{
-    fazerOperacao();
+    if(operador != undefined){
+        fazerOperacao();
+    }
+  
 });
 
 

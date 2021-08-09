@@ -11,7 +11,7 @@ switch1.addEventListener('click', () => {
     }
     switch1.setAttribute('checked', '');
     if (switch1.hasAttribute('checked')) {
-      document.documentElement.setAttribute('data-theme', 'first');
+      document.documentElement.setAttribute('data-theme', 'root');
     }
   });
 
